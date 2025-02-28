@@ -5,36 +5,58 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner teclado = new Scanner(System.in);
-        double peso;
-        double altura;
-        double indice;
-        System.out.println("digite su peso ");
-        peso = teclado.nextInt();
-        System.out.println("digite su altura ");
-        altura = teclado.nextDouble();
-        indice = peso / (altura * altura);
-        System.out.println("su indice de masa corporal es de:"+indice);
-        if (indice <= 18.5) {
-            System.out.println("su peso es bajo");
-        } else if (indice <= 24.9) {
-            System.out.println("su peso es normal");
-        } else if (indice <= 26.9) {
-            System.out.println("tiene sobrepeso grado 1");
-        } else if (indice <= 29.9) {
-            System.out.println("tiene sobrepeso grado 2");
-        } else if (indice <= 34.9) {
-            System.out.println("tiene obesidad tipo 1");
-        } else if (indice <= 39.9) {
-            System.out.println("tiene obesidad tipo 2");
-        } else if (indice <= 49.9) {
-            System.out.println("tiene obseidad de tipo 3");
-        } else if (indice >= 50) {
-            System.out.println("usted tiene obseidad extrema, se puede morir por gordo");
-        } else {
-            System.out.println("error");
-        }
+        Random ale = new Random();
+        double dinero;
+        int aleaotrio;
+        int jugador;
+
+        aleaotrio = ale.nextInt((3 - 1 + 1)) + 1;
+        System.out.println("digite el dinero que quiere apostar");
+        dinero = teclado.nextDouble();
+
+        do {
+
+            if (aleaotrio == 1) {
+                System.out.println("se ha multiplicado su dinero");
+                dinero = dinero * 2;
+                System.out.println("su dinero es de:" + dinero);
+                System.out.println("quieres seguir? para aceptar ingrese 1 si no ingrese 2");
+                jugador = teclado.nextInt();
+                if (jugador == 1) {
+                    aleaotrio = ale.nextInt((3 - 1 + 1)) + 1;
+                    continue;
+                } else if (jugador == 0) {
+                    System.out.println("su dinero es de:" + dinero);
+                    break;
+                }
+                System.out.println("su dinero es de:" + dinero + "quiere seguir con el juego? para aceptar ingrese 1 si no ingrese 2");
+            } else if (aleaotrio == 2) {
+                System.out.println("se ha divido su dinero a la mitad");
+                dinero = dinero / 2;
+                System.out.println("su dinero es de:" + dinero);
+                System.out.println("quieres seguir? para aceptar ingrese 1 si no ingrese 2");
+                jugador = teclado.nextInt();
+                if (jugador == 1) {
+                    aleaotrio = ale.nextInt((3 - 1 + 1)) + 1;1
+
+                    continue;
+                } else if (jugador == 0) {
+                    System.out.println("su dinero es de:" + dinero);
+                    break;
+                }
+                System.out.println("su dinero es de:" + dinero + "quiere seguir con el juego?para aceptar ingrese 1 si no ingrese 2");
+            } else if (aleaotrio == 3) {
+                System.out.println("ha  perdido todo");
+                dinero = dinero - dinero;
+                System.out.println("su dinero es de:" + dinero);
+            }
+        } while (dinero > 0);
+
     }
+
 }
+
+
 
 
 
