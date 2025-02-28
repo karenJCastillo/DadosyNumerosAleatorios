@@ -4,29 +4,37 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        Random ale = new Random();
         Scanner teclado = new Scanner(System.in);
-        int numero;
-        int usuario;
-        int contador = 0;
-        numero = ale.nextInt((50 - 1 + 1)) + 1;
-        System.out.println(numero);
-        while (contador < 3) {
-            System.out.println("ingrese el numero ");
-            usuario = teclado.nextInt();
-            if (numero < usuario) {
-                System.out.println("tu numero es menor");
-            } else if (numero > usuario) {
-                System.out.println("tu numero es mayor ");
-
-            } else if (usuario == numero) {
-                System.out.println("ganaste");
-                break;
-
-            }
-            contador++;
-            System.out.println("perdiste");
+        double peso;
+        double altura;
+        double indice;
+        System.out.println("digite su peso ");
+        peso = teclado.nextInt();
+        System.out.println("digite su altura ");
+        altura = teclado.nextDouble();
+        indice = peso / (altura * altura);
+        System.out.println("su indice de masa corporal es de:"+indice);
+        if (indice <= 18.5) {
+            System.out.println("su peso es bajo");
+        } else if (indice <= 24.9) {
+            System.out.println("su peso es normal");
+        } else if (indice <= 26.9) {
+            System.out.println("tiene sobrepeso grado 1");
+        } else if (indice <= 29.9) {
+            System.out.println("tiene sobrepeso grado 2");
+        } else if (indice <= 34.9) {
+            System.out.println("tiene obesidad tipo 1");
+        } else if (indice <= 39.9) {
+            System.out.println("tiene obesidad tipo 2");
+        } else if (indice <= 49.9) {
+            System.out.println("tiene obseidad de tipo 3");
+        } else if (indice >= 50) {
+            System.out.println("usted tiene obseidad extrema, se puede morir por gordo");
+        } else {
+            System.out.println("error");
         }
-
     }
 }
+
+
+
